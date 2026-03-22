@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;600&display=swap');
 
 :root {
-  --rosa: #ff4fa3;
-  --rojo: #ff3366;
-  --vino: #9f1239;
-  --blanco: #fff;
-  --fondo: #ffe4ee;
+  --fondo-1: #09121f;
+  --fondo-2: #131b2e;
+  --vino: #8c1c3b;
+  --rojo: #d64045;
+  --dorado: #f2c572;
+  --hielo: #d9e6f2;
+  --blanco: #f8fafc;
 }
 
 * {
@@ -15,123 +17,236 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: radial-gradient(circle at top, #ffd6e8 0%, var(--fondo) 45%, #ffd2d2 100%);
-  color: #4a0d26;
+  font-family: 'Cormorant Garamond', serif;
+  background: linear-gradient(130deg, var(--fondo-1), var(--fondo-2));
+  color: var(--hielo);
   display: grid;
   place-items: center;
   padding: 1.5rem;
+  overflow-x: hidden;
+}
+
+.fondo-animado {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fondo-animado span {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242, 197, 114, 0.95), rgba(214, 64, 69, 0.2));
+  animation: flotar 8s linear infinite;
+}
+
+.fondo-animado span:nth-child(1) {
+  left: 8%;
+  animation-delay: 0s;
+}
+.fondo-animado span:nth-child(2) {
+  left: 22%;
+  animation-delay: 1.6s;
+}
+.fondo-animado span:nth-child(3) {
+  left: 39%;
+  animation-delay: 3.3s;
+}
+.fondo-animado span:nth-child(4) {
+  left: 57%;
+  animation-delay: 2.4s;
+}
+.fondo-animado span:nth-child(5) {
+  left: 75%;
+  animation-delay: 4.8s;
+}
+.fondo-animado span:nth-child(6) {
+  left: 90%;
+  animation-delay: 6s;
+}
+
+@keyframes flotar {
+  0% {
+    transform: translateY(105vh) scale(0.3);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-15vh) scale(1.25);
+    opacity: 0;
+  }
 }
 
 .container {
-  width: min(800px, 100%);
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 2px solid #ffc1d9;
-  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+  width: min(860px, 100%);
+  background: rgba(9, 18, 31, 0.72);
+  border: 1px solid rgba(242, 197, 114, 0.35);
+  border-radius: 24px;
   padding: 2rem;
-  box-shadow: 0 10px 25px rgba(159, 18, 57, 0.2);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
 }
 
 .titulo-amor {
   text-align: center;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  margin: 0 0 1.5rem;
-  letter-spacing: 2px;
-  background: linear-gradient(90deg, var(--rojo), var(--rosa), #ff85b5, var(--vino));
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  margin: 0;
+  letter-spacing: 1px;
+  color: transparent;
+  background: linear-gradient(100deg, var(--dorado), #fff2d1, var(--rojo));
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
-  text-shadow: 0 0 12px rgba(255, 51, 102, 0.35);
-  animation: brillar 2.2s ease-in-out infinite alternate;
+  animation: brilloTitulo 3s ease-in-out infinite;
 }
 
-@keyframes brillar {
-  from {
+.subtitulo {
+  margin: 0.4rem 0 1.5rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #c8d6e5;
+}
+
+@keyframes brilloTitulo {
+  0%,
+  100% {
+    text-shadow: 0 0 6px rgba(242, 197, 114, 0.25);
     transform: scale(1);
-    filter: drop-shadow(0 0 2px rgba(255, 51, 102, 0.4));
   }
-  to {
-    transform: scale(1.03);
-    filter: drop-shadow(0 0 10px rgba(255, 79, 163, 0.65));
+  50% {
+    text-shadow: 0 0 18px rgba(242, 197, 114, 0.55);
+    transform: scale(1.02);
   }
 }
 
 .botonera {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(130px, 1fr));
+  gap: 0.8rem;
 }
 
 .btn {
-  border: none;
-  background: linear-gradient(135deg, var(--rojo), var(--rosa));
+  border: 1px solid rgba(242, 197, 114, 0.45);
+  background: linear-gradient(140deg, rgba(140, 28, 59, 0.9), rgba(214, 64, 69, 0.9));
   color: var(--blanco);
-  padding: 0.8rem 1.4rem;
-  border-radius: 999px;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 18px rgba(255, 51, 102, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 16px rgba(214, 64, 69, 0.26);
+  filter: brightness(1.1);
 }
 
-.carta,
-.fotos {
-  margin-top: 1.5rem;
-  background: #fff0f7;
-  border: 1px solid #ffc8dd;
-  border-radius: 14px;
+.panel {
+  margin-top: 1.2rem;
   padding: 1rem;
+  border: 1px solid rgba(242, 197, 114, 0.25);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  animation: aparecer 0.45s ease;
 }
 
-.carta h2,
-.fotos h2 {
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.panel h2 {
   margin-top: 0;
-  color: var(--vino);
+  color: var(--dorado);
+}
+
+.linea-tiempo {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.linea-tiempo article {
+  border-left: 3px solid rgba(242, 197, 114, 0.5);
+  padding: 0.25rem 0 0.25rem 0.8rem;
+  background: rgba(217, 230, 242, 0.05);
+  border-radius: 8px;
+}
+
+.linea-tiempo h3 {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  color: #f6dba4;
+}
+
+.linea-tiempo p {
+  margin: 0.3rem 0 0;
 }
 
 .texto-poema {
-  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
-  font-size: 1.45rem;
+  font-size: 1.4rem;
   line-height: 1.55;
-  color: #680f31;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
+  color: #f5ecdd;
   margin: 0;
 }
 
 .texto-poema::first-letter {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2.6rem;
-  color: var(--rojo);
+  font-size: 2.5rem;
+  color: var(--dorado);
+  font-family: 'Cinzel', serif;
   padding-right: 0.2rem;
 }
 
 .marco-fotos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
-  border: 2px dashed #ff85b5;
-  border-radius: 12px;
-  padding: 1rem;
-  background: #fff;
 }
 
 .foto-item {
   aspect-ratio: 1/1;
   border-radius: 12px;
-  background: linear-gradient(145deg, #ffd9ea, #ffc2db);
-  border: 1px solid #ff9fc7;
+  border: 1px solid rgba(242, 197, 114, 0.45);
+  background: linear-gradient(150deg, rgba(214, 64, 69, 0.2), rgba(27, 39, 61, 0.6));
   display: grid;
   place-items: center;
   font-weight: 700;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.foto-item:hover {
+  transform: scale(1.03) rotate(-1deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
 }
 
 .oculto {
   display: none;
+}
+
+@media (max-width: 640px) {
+  .botonera {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 1.25rem;
+  }
+
+  .texto-poema {
+    font-size: 1.25rem;
+  }
 }
