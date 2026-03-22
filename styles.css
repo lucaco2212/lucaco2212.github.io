@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap');
+
+:root {
+  --rosa: #ff4fa3;
+  --rojo: #ff3366;
+  --vino: #9f1239;
+  --blanco: #fff;
+  --fondo: #ffe4ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top, #ffd6e8 0%, var(--fondo) 45%, #ffd2d2 100%);
+  color: #4a0d26;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.container {
+  width: min(800px, 100%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid #ffc1d9;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(159, 18, 57, 0.2);
+}
+
+.titulo-amor {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin: 0 0 1.5rem;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, var(--rojo), var(--rosa), #ff85b5, var(--vino));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 12px rgba(255, 51, 102, 0.35);
+  animation: brillar 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes brillar {
+  from {
+    transform: scale(1);
+    filter: drop-shadow(0 0 2px rgba(255, 51, 102, 0.4));
+  }
+  to {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 10px rgba(255, 79, 163, 0.65));
+  }
+}
+
+.botonera {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  border: none;
+  background: linear-gradient(135deg, var(--rojo), var(--rosa));
+  color: var(--blanco);
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 18px rgba(255, 51, 102, 0.35);
+}
+
+.carta,
+.fotos {
+  margin-top: 1.5rem;
+  background: #fff0f7;
+  border: 1px solid #ffc8dd;
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.carta h2,
+.fotos h2 {
+  margin-top: 0;
+  color: var(--vino);
+}
+
+.texto-poema {
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+  font-size: 1.45rem;
+  line-height: 1.55;
+  color: #680f31;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+.texto-poema::first-letter {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.6rem;
+  color: var(--rojo);
+  padding-right: 0.2rem;
+}
+
+.marco-fotos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  border: 2px dashed #ff85b5;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #fff;
+}
+
+.foto-item {
+  aspect-ratio: 1/1;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffd9ea, #ffc2db);
+  border: 1px solid #ff9fc7;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.oculto {
+  display: none;
+}
