@@ -127,7 +127,7 @@ body {
 
 .botonera {
   display: grid;
-  grid-template-columns: repeat(3, minmax(130px, 1fr));
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
   gap: 0.8rem;
 }
 
@@ -239,6 +239,48 @@ body {
   object-fit: cover;
   display: block;
   border-radius: 10px;
+}
+
+
+.pregunta-box {
+  border: 1px dashed rgba(242, 197, 114, 0.45);
+  border-radius: 12px;
+  padding: 1rem;
+  background: rgba(217, 230, 242, 0.04);
+}
+
+.pregunta {
+  margin: 0 0 0.9rem;
+  font-size: 1.4rem;
+  color: #fff2d1;
+}
+
+.acciones-cita {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 56px;
+  position: relative;
+}
+
+.btn-si {
+  background: linear-gradient(140deg, #14532d, #16a34a);
+  border-color: rgba(167, 243, 208, 0.5);
+}
+
+.btn-no {
+  background: linear-gradient(140deg, #5b1115, #b91c1c);
+  border-color: rgba(252, 165, 165, 0.45);
+}
+
+.respuesta {
+  margin: 1rem 0 0;
+  padding: 0.75rem 0.9rem;
+  border-left: 3px solid var(--dorado);
+  background: rgba(242, 197, 114, 0.1);
+  border-radius: 8px;
+  color: #f6e8cb;
+  font-size: 1.2rem;
 }
 
 .oculto {

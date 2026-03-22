@@ -19,6 +19,7 @@
         <button class="btn" type="button" onclick="toggleTuYYo()">Tú y yo</button>
         <button class="btn" type="button" onclick="toggleCarta()">Carta</button>
         <button class="btn" type="button" onclick="toggleFotos()">Fotos</button>
+        <button class="btn" type="button" onclick="toggleCita()">Invitación</button>
       </section>
 
       <section id="tuyyo" class="panel oculto" aria-live="polite">
@@ -67,6 +68,18 @@
           </div>
         </div>
       </section>
+
+      <section id="cita" class="panel oculto" aria-live="polite">
+        <h2>☕ Invitación especial</h2>
+        <div class="pregunta-box">
+          <p class="pregunta">¿Quieres salir mañana conmigo?</p>
+          <div class="acciones-cita" id="acciones-cita">
+            <button class="btn btn-si" type="button" onclick="aceptarSalida()">Sí</button>
+            <button class="btn btn-no" id="btn-no" type="button" onmouseover="moverNo(this)" onclick="moverNo(this)">No</button>
+          </div>
+          <p id="respuesta-si" class="respuesta oculto">Mañana vamos al farol a tomarnos un cafecito.</p>
+        </div>
+      </section>
     </main>
 
     <script>
@@ -80,6 +93,25 @@
 
       function toggleFotos() {
         document.getElementById('fotos').classList.toggle('oculto');
+      }
+
+      function toggleCita() {
+        document.getElementById('cita').classList.toggle('oculto');
+      }
+
+      function aceptarSalida() {
+        document.getElementById('respuesta-si').classList.remove('oculto');
+      }
+
+      function moverNo(boton) {
+        const contenedor = document.getElementById('acciones-cita');
+        const maxX = Math.max(contenedor.clientWidth - boton.offsetWidth, 20);
+        const x = Math.floor(Math.random() * maxX);
+        const y = Math.floor(Math.random() * 25) - 12;
+
+        boton.style.position = 'relative';
+        boton.style.left = `${x}px`;
+        boton.style.top = `${y}px`;
       }
     </script>
   </body>
