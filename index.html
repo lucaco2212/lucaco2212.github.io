@@ -77,7 +77,10 @@
             <button class="btn btn-si" type="button" onclick="aceptarSalida()">Sí</button>
             <button class="btn btn-no" id="btn-no" type="button" onmouseover="moverNo(this)" onclick="moverNo(this)">No</button>
           </div>
-          <p id="respuesta-si" class="respuesta oculto">Mañana vamos al farol a tomarnos un cafecito.</p>
+          <div id="respuesta-si" class="respuesta respuesta-grande oculto" role="status">
+            <p>Mañana vamos al farol a tomarnos un cafecito. ☕💛</p>
+            <button class="btn btn-aceptar" type="button" onclick="lanzarCorazones(this)">Aceptar</button>
+          </div>
         </div>
       </section>
     </main>
@@ -101,6 +104,21 @@
 
       function aceptarSalida() {
         document.getElementById('respuesta-si').classList.remove('oculto');
+      }
+
+      function lanzarCorazones(boton) {
+        for (let i = 0; i < 14; i += 1) {
+          const corazon = document.createElement('span');
+          corazon.className = 'corazon-flotante';
+          corazon.textContent = Math.random() > 0.5 ? '💖' : '❤️';
+          corazon.style.left = `${Math.random() * 100}%`;
+          corazon.style.animationDelay = `${Math.random() * 0.25}s`;
+          corazon.style.fontSize = `${18 + Math.random() * 18}px`;
+
+          const caja = boton.closest('.pregunta-box');
+          caja.appendChild(corazon);
+          setTimeout(() => corazon.remove(), 1800);
+        }
       }
 
       function moverNo(boton) {
