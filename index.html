@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feliz 7 meses</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="titulo-amor">Feliz 7 meses 💖</h1>
+
+      <section class="botonera" aria-label="Sección de botones">
+        <button class="btn" type="button">Tú y yo</button>
+        <button class="btn" type="button" onclick="toggleCarta()">Carta</button>
+        <button class="btn" type="button" onclick="toggleFotos()">Fotos</button>
+      </section>
+
+      <section id="carta" class="carta oculto" aria-live="polite">
+        <h2>💌 Carta</h2>
+        <p class="texto-poema">
+          Creo encarecidamente que esa persona salió del mismo cielo, porque no
+          puedo creer que en su corazón haya tanta bondad y a la vez tanta
+          dulzura.<br /><br />
+          A veces la miro y pienso que el mundo fue generoso el día que la puso
+          en mi camino, como si hubiera querido compensar todo lo que antes no
+          salió bien.<br /><br />
+          No sé cómo alguien puede ser así, tan completa, tan real, tan difícil
+          de merecer y tan fácil de amar.
+        </p>
+      </section>
+
+      <section id="fotos" class="fotos oculto" aria-live="polite">
+        <h2>📸 Nuestros recuerdos</h2>
+        <div class="marco-fotos">
+          <div class="foto-item">Foto 1</div>
+          <div class="foto-item">Foto 2</div>
+          <div class="foto-item">Foto 3</div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function toggleCarta() {
+        document.getElementById('carta').classList.toggle('oculto');
+      }
+
+      function toggleFotos() {
+        document.getElementById('fotos').classList.toggle('oculto');
+      }
+    </script>
+  </body>
+</html>
